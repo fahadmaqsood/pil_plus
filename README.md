@@ -98,9 +98,21 @@ image.replace_color((0,0,0), (255,255,255))
 ```
 #### Other common functions
 ```python
-#showing the image
+# showing the image
 image.show()
+
+# saving the image
+image.save() # save as outputs\output.png (incrementing _1 in the file name if it exists)
+image.save('some_dir/name.extension') # save in some other path
 
 # returning base64 string
 image.get_base64()
+
+# get PIL Image object
+image.get_image()
+
+# getting numpy array
+image.get_numpy_array()
+
+
 ```
