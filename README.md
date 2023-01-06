@@ -73,3 +73,20 @@ image.sharpen()
 edges = image.get_canny_edges()
 edges.show()
 ```
+Writing Text on image
+```python
+image.draw_text("The is sample text", text_color=(0, 0, 0), coordinates=(0, 0))
+```
+Removing Background of the image
+```python
+image.remove_background()
+```
+
+Other common functions
+```python
+#showing the image
+image.show()
+
+# returning base64 string
+image.get_base64()
+```
