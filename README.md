@@ -17,10 +17,19 @@ Overall, "pil_plus" aims to provide a simple and intuitive interface for working
 
 using pil_plus is as simple as the following:
 
-`
-#importing the package
-
+Importing the package
+```
 from pil_plus import PilPlus
-
+```
+Opening an image
+```
+# opening an image
 image = PilPlus("test.jpg")
-`
+
+# converting numpy array to PilPlus object
+image = PilPlus(some_numpy_image_array)
+
+# converting Pil Image to PilPlus object
+image = PilPlus(some_pil_image_variable)
+```
+
