@@ -17,6 +17,10 @@ Overall, "pil_plus" aims to provide a simple and intuitive interface for working
 
 using pil_plus is as simple as the following:
 
-importing the package
+`
+#importing the package
 
-`from pil_plus import PilPlus`
+from pil_plus import PilPlus
+
+image = PilPlus("test.jpg")
+`
