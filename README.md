@@ -111,7 +111,7 @@ image.replace_color((0,0,0), (255,255,255))
 image.show()
 
 # saving the image
-image.save() # save as outputs\output.png (incrementing _1 in the file name if it exists)
+image.save() # save as outputs\output.png (incrementing 1 in the file name if it exists)
 image.save('some_dir/name.extension') # save in some other path
 
 # returning base64 string
