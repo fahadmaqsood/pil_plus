@@ -17,11 +17,11 @@ Overall, "pil_plus" aims to provide a simple and intuitive interface for working
 
 using pil_plus is as simple as the following:
 
-Importing the package
+###Importing the package
 ```python
 from pil_plus import PilPlus
 ```
-Opening an image
+###Opening an image
 ```python
 # using path of the image
 image = PilPlus("test.jpg")
