@@ -14,7 +14,7 @@ Some of the features offered by "pil_plus" include:
 Overall, "pil_plus" aims to provide a simple and intuitive interface for working with images in Python, making it easy to perform common image manipulation tasks.
 
 # Installation
-PilPlus can be installed using pip with the following command:
+pil_plus can be installed using pip with the following command:
 ```
 pip install pil-plus
 ```
@@ -124,7 +124,6 @@ image.get_image()
 image.get_numpy_array()
 
 # Conversion between different color models and conventions
-
 image.rgb_to_bgr()
 image.bgr_to_rgb()
 image.convert_to_grayscale()
