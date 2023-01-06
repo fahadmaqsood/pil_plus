@@ -44,6 +44,8 @@ height = image.get_height()
 size = image.get_size()
 ```
 Performing operations on the image
+
+Resizing:
 ```python
 # changing width and keeping aspect ratio
 image.resize(new_width=1000)
@@ -54,5 +56,8 @@ image.resize(new_height=1000)
 # changing both width and height
 image.resize(new_width=600, new_height=800)
 ```
-
-
+Rotating:
+```python
+# rotating -45 degrees
+image.rotate(-45)
+```
