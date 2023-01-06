@@ -24,6 +24,7 @@ using pil_plus is as simple as the following:
 * [Image filtering](#image-filtering)
 * [Writing text on image](#writing-text-on-image)
 * [Removing background of the image](#removing-background-of-the-image)
+* [Replacing one color with another](#replacing-one-color-with-another)
 * [Other common functions](#other-common-functions)
 
 #### Importing the package
@@ -86,9 +87,14 @@ edges.show()
 ```python
 image.draw_text("The is sample text", text_color=(0, 0, 0), coordinates=(0, 0))
 ```
-Removing Background of the image
+#### Removing Background of the image
 ```python
 image.remove_background()
+```
+#### Replacing one color with another
+```python
+# replace black with white
+image.replace_color((0,0,0), (255,255,255))
 ```
 #### Other common functions
 ```python
