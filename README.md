@@ -12,3 +12,11 @@ Some of the features offered by "pil_plus" include:
 * Replacing a specific color in the image with another
 
 Overall, "pil_plus" aims to provide a simple and intuitive interface for working with images in Python, making it easy to perform common image manipulation tasks.
+
+# Usage
+
+using pil_plus is as simple as the following:
+
+importing the package
+
+`from pil_plus import PilPlus`
