@@ -5,10 +5,8 @@
 Some of the features offered by "pil_plus" include:
 
 * Image resizing: Functions for quickly and easily resizing images to different dimensions.
-* Image cropping: Functions for cropping images to remove unwanted areas or to focus on specific parts of the image.
 * Image rotation: Functions for rotating images by any angle.
 * Image filtering: Functions for applying various image filters, such as blur, sharpen, and edge detection.
-* Image conversion: Functions for converting images between different file formats, such as JPEG, PNG, and BMP.
 * Writing Text on Images
 * Removing background of Images
 * Replacing a specific color in the image with another
