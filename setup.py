@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name='pil_plus',
     version='0.1',
-    license='APACHE 2.0',
+    license='APACHE-2.0',
     author="Fahad Maqsood Qazi",
     author_email='qazifahadmaqsood@gmail.com',
     packages=find_packages('src'),
