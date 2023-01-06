@@ -79,6 +79,9 @@ image.apply_gaussian_blur()
 # sharpening the image
 image.sharpen()
 
+# applying background
+image.apply_background((255,255,255)) # changes background from transparent (see [Removing background of the image](#removing-background-of-the-image)) to black
+
 # getting canny edges and showing the returned image
 edges = image.get_canny_edges()
 edges.show()
