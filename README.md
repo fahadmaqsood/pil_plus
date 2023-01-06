@@ -17,14 +17,14 @@ Overall, "pil_plus" aims to provide a simple and intuitive interface for working
 
 using pil_plus is as simple as the following:
 
-* [Importing the package](#importing_the_package)
-* [Opening an image](#opening_an_image)
-* [Getting size of the image](#getting_size_of_the_image)
-* [Resizing and rotating](#resizing_and_rotating)
-* [Image filtering](#image_filtering)
-* [Writing text on image](#writing_text_on_image)
-* [Removing background of the image](#removing_background_of_the_image)
-* [Other common functions](#other_common_functions)
+* [Importing the package](#importing-the-package)
+* [Opening an image](#opening-an-image)
+* [Getting size of the image](#getting-size-of-the-image)
+* [Resizing and rotating](#resizing-and-rotating)
+* [Image filtering](#image-filtering)
+* [Writing text on image](#writing-text-on-image)
+* [Removing background of the image](#removing-background-of-the-image)
+* [Other common functions](#other-common-functions)
 
 #### Importing the package
 ```python
