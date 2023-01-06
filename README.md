@@ -17,9 +17,14 @@ Overall, "pil_plus" aims to provide a simple and intuitive interface for working
 
 using pil_plus is as simple as the following:
 
-* [link](#importing_the_package)
-* [link](#opening_an_image)
-*
+* [Importing the package](#importing_the_package)
+* [Opening an image](#opening_an_image)
+* [Getting size of the image](#getting_size_of_the_image)
+* [Resizing and rotating](#resizing_and_rotating)
+* [Image filtering](#image_filtering)
+* [Writing text on image](#writing_text_on_image)
+* [Removing background of the image](#removing_background_of_the_image)
+* [Other common functions](#other_common_functions)
 
 #### Importing the package
 ```python
@@ -36,7 +41,7 @@ image = PilPlus(some_numpy_image_array)
 # converting Pil Image to PilPlus object
 image = PilPlus(some_pil_image_variable)
 ```
-Getting information about the image
+#### Getting size of the image
 ```python
 # Getting image width
 width = image.get_width()
@@ -47,7 +52,7 @@ height = image.get_height()
 # Getting image size tuple
 size = image.get_size()
 ```
-Resizing and rotating
+#### Resizing and rotating
 
 Resizing:
 ```python
@@ -65,7 +70,7 @@ Rotating:
 # rotating -45 degrees
 image.rotate(-45)
 ```
-Image filtering
+#### Image filtering
 ```python
 # applying Guassian Blur
 image.apply_gaussian_blur()
@@ -77,7 +82,7 @@ image.sharpen()
 edges = image.get_canny_edges()
 edges.show()
 ```
-Writing Text on image
+#### Writing Text on image
 ```python
 image.draw_text("The is sample text", text_color=(0, 0, 0), coordinates=(0, 0))
 ```
@@ -85,8 +90,7 @@ Removing Background of the image
 ```python
 image.remove_background()
 ```
-
-Other common functions
+#### Other common functions
 ```python
 #showing the image
 image.show()
