@@ -42,8 +42,17 @@ height = image.get_height()
 
 # Getting image size tuple
 size = image.get_size()
->>> print(size)
->>> (500, 500)
+```
+Performing operations on the image
+```python
+# changing width and keeping aspect ratio
+image.resize(new_width=1000)
+
+# changing height and keeping aspect ratio
+image.resize(new_height=1000)
+
+# changing both width and height
+image.resize(new_width=600, new_height=800)
 ```
 
 
