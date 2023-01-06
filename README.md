@@ -32,4 +32,16 @@ image = PilPlus(some_numpy_image_array)
 # converting Pil Image to PilPlus object
 image = PilPlus(some_pil_image_variable)
 ```
+Getting information about the image
+```
+# Getting width
+image.get_width()
+
+# Getting height
+image.get_height()
+
+# Getting size tuple
+image.get_size()
+```
+
 
