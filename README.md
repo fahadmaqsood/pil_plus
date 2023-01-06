@@ -23,7 +23,7 @@ from pil_plus import PilPlus
 ```
 Opening an image
 ```
-# opening an image
+# using path of the image
 image = PilPlus("test.jpg")
 
 # converting numpy array to PilPlus object
