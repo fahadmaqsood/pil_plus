@@ -13,6 +13,12 @@ Some of the features offered by "pil_plus" include:
 
 Overall, "pil_plus" aims to provide a simple and intuitive interface for working with images in Python, making it easy to perform common image manipulation tasks.
 
+# Installation
+PilPlus can be installed using pip with the following command:
+```
+pip install pil-plus
+```
+
 # Usage
 
 using pil_plus is as simple as the following:
