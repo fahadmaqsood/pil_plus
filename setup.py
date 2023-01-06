@@ -10,7 +10,7 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     url='https://github.com/fahadmaqsood/pil_plus',
-    keywords=['PIL', 'image processing', 'PIL wrapper', 'easy PIL'],
+    keywords=['PIL', 'image processing', 'PIL wrapper', 'easy PIL', 'pillow'],
     install_requires=[
           'opencv-python',
           'pillow',
