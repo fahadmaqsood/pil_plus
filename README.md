@@ -117,5 +117,11 @@ image.get_image()
 # getting numpy array
 image.get_numpy_array()
 
+# Conversion between different color models and conventions
+
+image.rgb_to_bgr()
+image.bgr_to_rgb()
+image.convert_to_grayscale()
+image.convert_to_rgb()
 
 ```
