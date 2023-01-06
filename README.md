@@ -43,7 +43,7 @@ height = image.get_height()
 # Getting image size tuple
 size = image.get_size()
 ```
-Performing operations on the image
+Resizing and rotating
 
 Resizing:
 ```python
@@ -60,4 +60,16 @@ Rotating:
 ```python
 # rotating -45 degrees
 image.rotate(-45)
+```
+Image filtering
+```python
+# applying Guassian Blur
+image.apply_gaussian_blur()
+
+# sharpening the image
+image.sharpen()
+
+# getting canny edges and showing the returned image
+edges = image.get_canny_edges()
+edges.show()
 ```
