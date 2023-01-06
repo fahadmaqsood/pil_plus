@@ -34,14 +34,16 @@ image = PilPlus(some_pil_image_variable)
 ```
 Getting information about the image
 ```python
-# Getting width
-image.get_width()
+# Getting image width
+width = image.get_width()
 
-# Getting height
-image.get_height()
+# Getting image height
+height = image.get_height()
 
-# Getting size tuple
-image.get_size()
+# Getting image size tuple
+size = image.get_size()
+>>> print(size)
+>>> (500, 500)
 ```
 
 
