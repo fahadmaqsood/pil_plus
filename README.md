@@ -33,7 +33,7 @@ image = PilPlus(some_numpy_image_array)
 image = PilPlus(some_pil_image_variable)
 ```
 Getting information about the image
-```
+```python
 # Getting width
 image.get_width()
 
