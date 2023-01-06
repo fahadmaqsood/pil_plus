@@ -19,6 +19,8 @@ class PilPlus():
     def __init__(self, img, size=None) -> None:
         self.setImage(img, size)
 
+        self.arial_font = ImageFont.truetype("arial.ttf", size=12)
+
     def setImage(self, img, size=None):
         if type(img) == str and img == BLANK:
             if type(size) is not tuple:
@@ -118,6 +120,19 @@ class PilPlus():
 
         return self
 
+    def rgb_to_bgr(self):
+        """
+            Converts the image from rgb to bgr (opencv uses bgr)
+
+            @param self:
+            @return: None
+        """
+        
+        self.img = Image.fromarray(cv2.cvtColor(self.get_numpy_array(), cv2.COLOR_RGB2BGR))
+
+
+    
+
     def apply_gaussian_blur(self):
         """
             apply gaussian blur to the current image
@@ -150,30 +165,71 @@ class PilPlus():
 
             self.img = background
 
-    def draw_text(self, text: str, font:ImageFont, text_color):
+    def draw_text(self, text: str, text_color: tuple, font:ImageFont = None, coordinates=(0,0)):
         """
         @param self:
         @param text: str
             Text to be written on the image.
         @param font: ImageFont
-            Font to use for the text
+            Font to use for the text. Default is Arial with size 12
         @param text_color: tuple
             Tuple containing RGB or RGBA color
         
         @return: PilPlus Object
         """
+
+        if font is None:
+            font = self.arial_font
         
         W, H = (self.get_width(), self.get_height())
 
-        self.draw = ImageDraw.Draw(self.img)  
+        self.draw = self.get_draw() 
 
-        _, _, w, h = self.draw.textbbox((0, 0), text, font=font)
+        _, _, w, h = self.draw.textbbox(coordinates, text, font=font)
 
         self.draw.text(((W-w)/2, (H-h)/2), text, font=font, fill=text_color)
 
         return self.img
 
-    def sharpen_image(self):
+    def resize(self, new_width: int = None, new_height: int = None):
+        """
+            Resizes the image to new dimensions. If only `new_width` is defined, `new_height` can be calculated to keep aspect ratio and vice versa. If both are defined at the same time, then image will be resized to those dimensions.
+
+            @param self:
+            @param new_width: int
+                If only new width is defined, new_height can be calculated to keep aspect ratio. Both can also be defined at the same time to not keep the aspect ratio.
+            @param new_height: int
+                If only new_height is defined, new_width can be calculated to keep aspect ratio. Both can also be defined at the same time to not keep the aspect ratio.
+            
+            @return: None
+        """
+
+        if new_height == None and new_width == None:
+            raise ValueError("New height and New width can not be none at the same time.")
+        
+        if new_height == None and new_width != None:
+            new_height = new_width * self.get_height() // self.get_width() 
+        
+        if new_width == None and new_height != None:
+            new_width = new_height * self.get_width() // self.get_height()
+
+        self.img = self.img.resize((new_width, new_height), Image.ANTIALIAS)
+
+
+    def rotate(self, degrees: int):
+        """
+            Rotates the image 
+
+            @param self:
+            @param degrees: int
+                degrees of rotation. Can be positive or negative.
+
+            @return: None
+                changes rotation internally
+        """
+        self.img = self.img.rotate(degrees)
+
+    def sharpen(self):
         """
             Sharpens the image
 
@@ -214,6 +270,9 @@ class PilPlus():
             @param self:
             @return: None
         """
+
+        if not os.path.exists("tmp"):
+            os.mkdir("tmp")
         
         self.save("tmp/_____temp_____.png", replace_file=True)
         
@@ -248,6 +307,29 @@ class PilPlus():
         """
         
         return PilPlus(cv2.Canny(np.asarray(self.img),100,200))
+
+    
+    def replace_color(self, color: tuple, replacement_color: tuple) -> None:
+        """
+            @param self:
+            @param color: tuple
+                rgb(a) representation of color to be replaced
+            @param replacement_color: tuple
+                new color
+            
+            @return: PilPlus
+                PilPlus object with changes made (image will also be changed internally inside the class) 
+        """
+
+        img = np.array(self.img)
+
+        for row in range(self.get_height()):
+            for col in range(self.get_width()):
+                if np.array_equal(img[row][col], color):
+                    print(np.array_equal(img[row][col], color))
+                    img[row][col] = replacement_color
+            
+        self.setImage(img)
 
 
     def copy_pixels_from(self, mask: 'PilPlus', destinationColoredPixel=(255,255,255), follow_luminosity=False):
@@ -677,11 +759,12 @@ class PilPlus():
             @param self:
             @return: None
         """
-
-        cv2.imshow('image', self.getImageArray())
+        
+        self.rgb_to_bgr()
+        cv2.imshow('image', self.get_numpy_array())
         cv2.waitKey(0)
         cv2.destroyAllWindows()
-
+        self.bgr_to_rgb()
         
 
     def save(self, path="outputs/output.png", img=None, replace_file=False, add_top_border=True) -> None:
@@ -703,6 +786,8 @@ class PilPlus():
         if img is None:
             img = self.img
 
+        if path == "outputs/output.png" and not os.path.exists(path):
+            os.mkdir("outputs")
 
         if not replace_file:
             count = 0
@@ -714,7 +799,7 @@ class PilPlus():
             new_size = (self.get_width(), self.get_height() + 8)
 
             new_im = Image.new("RGB", new_size, (255,255,255))
-            box = tuple((n - o) for n, o in zip(new_size, self.getSize()))
+            box = tuple((n - o) for n, o in zip(new_size, self.get_size()))
             new_im.paste(img, box)
 
             img = new_im
