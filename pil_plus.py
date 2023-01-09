@@ -37,7 +37,13 @@ class PilPlus():
         elif type(img) == PilPlus:
             self.img = img.get_image()
         else:
-            self.img = Image.open(img)
+            try:
+                # open image from path
+                self.img = Image.open(img)
+            except FileNotFoundError as e:
+                # maybe it's a base64 string instead of a path
+                buff = BytesIO(base64.b64decode(img))
+                self.img = Image.open(buff)
 
     def get_width(self) -> int:
         """
@@ -326,7 +332,6 @@ class PilPlus():
         for row in range(self.get_height()):
             for col in range(self.get_width()):
                 if np.array_equal(img[row][col], color):
-                    print(np.array_equal(img[row][col], color))
                     img[row][col] = replacement_color
             
         self.setImage(img)
@@ -767,7 +772,7 @@ class PilPlus():
         self.bgr_to_rgb()
         
 
-    def save(self, path="outputs/output.png", img=None, replace_file=False, add_top_border=True) -> None:
+    def save(self, path="outputs/output.png", img=None, replace_file=False, add_top_border=False) -> None:
         """
             saves the image
 
@@ -821,3 +826,5 @@ class PilPlus():
         buffered = BytesIO()
         self.img.save(buffered, format="JPEG")
         return base64.b64encode(buffered.getvalue())
+
+    
