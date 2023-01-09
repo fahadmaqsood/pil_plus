@@ -48,7 +48,7 @@ image = PilPlus(some_numpy_image_array)
 # converting Pil Image to PilPlus object
 image = PilPlus(some_pil_image_variable)
 
-#converting base64 string to PilPlus object
+# converting base64 string to PilPlus object
 image = PilPlus(some_base64_string)
 ```
 #### Getting size of the image
